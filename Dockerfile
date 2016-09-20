@@ -1,14 +1,12 @@
 FROM duffqiu/dockerjdk7:latest
 MAINTAINER duffqiu@gmail.com
 
-RUN rpm --import http://mirror.centos.org/centos/RPM-GPG-KEY-CentOS-7
-RUN yum install -y wget tar \ 
-    yum clean
-
-RUN wget --no-cookies --no-check-certificate http://ftp.riken.jp/net/apache/zookeeper/zookeeper-3.4.8/zookeeper-3.4.8.tar.gz
-
-RUN tar zxf zookeeper-3.4.8.tar.gz \
-    mv zookeeper-3.4.8 zookeeper \
+RUN rpm --import http://mirror.centos.org/centos/RPM-GPG-KEY-CentOS-7 && \ 
+    yum install -y wget tar && \ 
+    yum clean && \
+    wget --no-cookies --no-check-certificate http://ftp.riken.jp/net/apache/zookeeper/zookeeper-3.4.8/zookeeper-3.4.8.tar.gz && \
+    tar zxf zookeeper-3.4.8.tar.gz &&\
+    mv zookeeper-3.4.8 zookeeper && \
     rm -rf zookeeper-3.4.8.tar.gz
 
 
